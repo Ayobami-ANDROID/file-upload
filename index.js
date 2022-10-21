@@ -4,6 +4,8 @@ const connectDB = require('./db/ConnectDb')
 const dotenv = require('dotenv')
 dotenv.config()
 
+app.use(express.json())
+
 
 const start = async () =>{
     try {
