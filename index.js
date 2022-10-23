@@ -2,10 +2,11 @@ const express = require('express')
 const app = express()
 const connectDB = require('./db/ConnectDb')
 const dotenv = require('dotenv')
+const router = require('./routes/user')
 dotenv.config()
 
 app.use(express.json())
-
+app.use('/user',router)
 
 const start = async () =>{
     try {
