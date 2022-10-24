@@ -1,9 +1,10 @@
 const multer = require('multer')
-const path = require('path')
+const path = require('path');
+const { createBrotliCompress } = require('zlib');
 
 module.exports = multer({
     storage:multer.diskStorage({}),
-    fileFilter:(req,res,db) =>{
+    fileFilter:(req,file,cb) =>{
         let ext = path.extname(file.originalname);
         if(ext !== 'jpg' && ext !== ".jpeg" && ext !== ".png"){
             cb(new Error("file type is not supported"),false)

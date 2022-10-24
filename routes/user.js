@@ -4,7 +4,7 @@ const router = express.Router()
 const cloudinary = require('../utils/cloudinary')
 const upload = require('../utils/multer')
 
-router.get('/',upload.single('image'),async (req,res)=>{
+router.post('/', upload.single('image') ,async (req,res)=>{
     try {
         const result = await cloudinary.uploader.upload(req.file.path)
         res.json(result)
